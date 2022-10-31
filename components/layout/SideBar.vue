@@ -1,17 +1,25 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <template>
 	<v-navigation-drawer app permanent>
-		Sidebar
-
-		<v-list color="transparent">
-			<v-list-subheader>Front-end</v-list-subheader>
-			<v-list-item prepend-icon="mdi-view-dashboard" title="Vue" to="/vue" />
-			<v-list-item prepend-icon="mdi-account-box" title="Account" to="/design/vuetify" />
-			<v-list-item prepend-icon="mdi-gavel" title="Admin" />
-			<v-list-subheader>Back-end</v-list-subheader>
-		</v-list>
+		<div class="pa-5 d-flex align-center">
+			<v-icon icon="mdi-book" />
+			<h1>Learning docs</h1>
+		</div>
+		<LayoutSidebarMenu />
 	</v-navigation-drawer>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+:deep(.v-expansion-panel-text__wrapper) {
+	padding: 0px 24px;
+}
+
+:deep(.v-expansion-panel) {
+	margin-top: 0px !important;
+}
+
+.v-expansion-panel-title {
+	min-height: 50px !important;
+}
+</style>
