@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-	<v-app-bar app> test </v-app-bar>
+	<v-app-bar app :order="1"> test </v-app-bar>
 </template>
 
 <style lang="scss" scoped></style>

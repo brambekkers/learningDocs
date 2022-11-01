@@ -1,25 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+	import { useDisplay } from "vuetify";
+	import { useWindowSize } from "@vueuse/core";
+
+	const { width } = useWindowSize();
+	const { mobile } = useDisplay();
+
+	const drawerWidth = computed(() => (width.value / 100) * 30);
+</script>
 
 <template>
-	<v-navigation-drawer app permanent>
-		<div class="pa-5 d-flex align-center">
-			<v-icon icon="mdi-book" />
-			<h1>Learning docs</h1>
+	<v-navigation-drawer app :permanent="!mobile" :width="drawerWidth">
+		<div id="menu-container">
+			<LayoutSidebarTitle />
+			<LayoutSidebarMenu />
 		</div>
-		<LayoutSidebarMenu />
 	</v-navigation-drawer>
 </template>
 
 <style lang="scss" scoped>
-:deep(.v-expansion-panel-text__wrapper) {
-	padding: 0px 24px;
-}
-
-:deep(.v-expansion-panel) {
-	margin-top: 0px !important;
-}
-
-.v-expansion-panel-title {
-	min-height: 50px !important;
-}
+	#menu-container {
+		margin-left: auto;
+		max-width: 300px;
+	}
 </style>
