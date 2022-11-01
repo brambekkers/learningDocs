@@ -1,7 +1,9 @@
 <script setup lang="ts">
+	const categoryPanels = ref(["frameworks, designSystems, backend"]);
 	const category = ref([
 		{
 			title: "Frameworks",
+			value: "frameworks",
 			items: [
 				{
 					title: "Vue",
@@ -12,6 +14,7 @@
 		},
 		{
 			title: "Design systems",
+			value: "designSystems",
 			items: [
 				{
 					title: "Vuetify",
@@ -22,6 +25,7 @@
 		},
 		{
 			title: "Back-end",
+			value: "backend",
 			items: [
 				{
 					title: "Firebase",
@@ -44,15 +48,17 @@
 </script>
 
 <template>
-	<v-expansion-panels multiple color="transparent">
-		<v-expansion-panel elevation="0" v-for="cat of category" class="pa-0">
+	<v-expansion-panels multiple color="transparent" v-model="categoryPanels">
+		<v-expansion-panel elevation="0" v-for="cat of category" class="pa-0" :value="cat.value">
 			<v-divider />
-			<v-expansion-panel-title>
+			<v-expansion-panel-title class="text-sm font-weight-bold" color="transparent">
 				{{ cat.title }}
 			</v-expansion-panel-title>
 			<v-expansion-panel-text class="pa-0">
 				<v-list class="pa-0" variant="plain" color="primary" density="compact">
-					<v-list-item :prepend-icon="item.icon" :title="item.title" :to="item.to" v-for="item of cat.items" />
+					<v-list-item :prepend-icon="item.icon" :to="item.to" v-for="item of cat.items" class="text-xs">
+						<v-list-item-title class="font-weight-bold"> {{ item.title }}</v-list-item-title>
+					</v-list-item>
 				</v-list>
 			</v-expansion-panel-text>
 		</v-expansion-panel>
@@ -60,6 +66,10 @@
 </template>
 
 <style lang="scss" scoped>
+	:deep(.v-expansion-panel-title__overlay) {
+		background-color: transparent !important;
+	}
+
 	:deep(.v-expansion-panel-text__wrapper) {
 		padding: 0px !important;
 	}
