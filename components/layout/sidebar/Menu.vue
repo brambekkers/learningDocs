@@ -2,6 +2,22 @@
 	const categoryPanels = ref(["frameworks, designSystems, backend"]);
 	const category = ref([
 		{
+			title: "Languages",
+			value: "languages",
+			items: [
+				{
+					title: "Javascript",
+					icon: "mdi-language-javascript",
+					to: "/languages/javascript",
+				},
+				{
+					title: "Markdown",
+					icon: "mdi-markdown",
+					to: "/languages/markdown",
+				},
+			],
+		},
+		{
 			title: "Frameworks",
 			value: "frameworks",
 			items: [

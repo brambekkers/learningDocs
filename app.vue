@@ -1,13 +1,10 @@
 <template>
 	<v-app>
 		<LayoutSideBar />
-
-		<!-- Sizes your content based upon application components -->
+		<LayoutNavBar />
 		<v-main>
-			<LayoutNavBar />
 			<NuxtPage />
 		</v-main>
-
 		<v-footer app> Footer </v-footer>
 	</v-app>
 </template>

@@ -2,6 +2,15 @@
 export default defineNuxtConfig({
 	modules: ["@vueuse/nuxt", "@nuxt/content"],
 	css: ["vuetify/lib/styles/main.sass", "mdi/css/materialdesignicons.min.css"],
+	content: {
+		highlight: {
+			// Theme used in all color schemes.
+			theme: "github-light",
+		},
+		navigation: {
+			fields: ["author", "publishedAt"],
+		},
+	},
 	build: {
 		transpile: ["vuetify"],
 	},
